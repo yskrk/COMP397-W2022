@@ -17,7 +17,7 @@ public class PlayerBehabiour : MonoBehaviour
     [SerializeField] private float groundRadius = 0.5f;
     [SerializeField] LayerMask groundMask;
     [SerializeField] bool isGrounded;
-
+    
     // Start is called before the first frame update
     void Start()
     {
