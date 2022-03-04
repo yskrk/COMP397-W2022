@@ -8,12 +8,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Conclete Material
-    second: {fileID: 2100000, guid: eb6017a4f3afa7e4eaf4ae1461db5ec1, type: 2}
+    second: {fileID: 2100000, guid: e1dfa262a34b23e4ba92bb89e5cb32be, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Gravel Cobble Ground Material
-    second: {fileID: 2100000, guid: f4a8302444df65c4bb24c0bbf06c0fc3, type: 2}
+    second: {fileID: 2100000, guid: 0dc2db5af7f0bfd418cc56282b229377, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
