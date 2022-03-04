@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 23800000, guid: 595ef7cf28522354dafba36ca105b61e, type: 2}
+  m_NavMeshData: {fileID: 0}
 --- !u!1 &87369203
 GameObject:
   m_ObjectHideFlags: 0
@@ -1032,8 +1032,8 @@ MonoBehaviour:
   startTile: {fileID: 5231301285532120983, guid: 50600e92cb6b1954b91e536c2c621aef,
     type: 3}
   goalTile: {fileID: 716394707518590157, guid: dc8256c9b264cda46bb87c5070a23c0e, type: 3}
-  width: 5
-  depth: 5
+  width: 3
+  depth: 3
   parent: {fileID: 859477467}
   tiles: []
   startWidth: 0

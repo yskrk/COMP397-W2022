@@ -1,17 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.AI.Navigation;
 
 public class MapGenerator : MonoBehaviour
 {
     [Header("TileResources")]
     [SerializeField] private List<GameObject> tilePrefabs;
-    public GameObject startTile;
-    public GameObject goalTile;
+    [SerializeField] private GameObject startTile;
+    [SerializeField] private GameObject goalTile;
 
     [Header("TileProperties")]
-    [Range(2, 30)]public int width = 2;
-    [Range(2, 30)]public int depth = 2;
+    [Range(2, 30)][SerializeField] private int width = 3;
+    [Range(2, 30)][SerializeField] private int depth = 3;
     [SerializeField] private Transform parent;
 
     [Header("Generated Tiles")]
@@ -24,7 +25,8 @@ public class MapGenerator : MonoBehaviour
     {
         startWidth = width;
         startDepth = depth;
-        BuildMap();   
+        BuildMap();
+        BakeNavMesh();
     }
 
     // Update is called once per frame
@@ -34,6 +36,7 @@ public class MapGenerator : MonoBehaviour
         {
             Resetmap();
             BuildMap();
+            Invoke(nameof(BakeNavMesh), 0.2f);
         }
     }
 
@@ -70,6 +73,14 @@ public class MapGenerator : MonoBehaviour
                     tiles.Add(Instantiate(tilePrefabs[randomPrefabIndex], tilePosition, randomRotation, parent));
                 }
             }
+        }
+    }
+
+    public void BakeNavMesh()
+    {
+        foreach(var tile in tiles)
+        {
+            tile.GetComponentInChildren<NavMeshSurface>().BuildNavMesh();
         }
     }
 

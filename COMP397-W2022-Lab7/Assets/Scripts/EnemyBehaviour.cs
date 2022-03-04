@@ -11,13 +11,19 @@ public class EnemyBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.FindObjectOfType<PlayerBehabiour>().gameObject.transform;
         agent = GetComponent<NavMeshAgent>();
+        InvokeRepeating(nameof(FindPlayer), 0.2f, 0.1f);
     }
 
-    // Update is called once per frame
-    void Update()
+    // // Update is called once per frame
+    // void Update()
+    // {
+
+    // }
+
+    public void FindPlayer()
     {
         agent.destination = player.position;
-
     }
 }

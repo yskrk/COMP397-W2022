@@ -53,7 +53,7 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 3.5
+  m_Height: 3
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
@@ -187,8 +187,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1813370410483547495, guid: f77e36f6ddea9fe418f673d6f52f0eaf,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 1813370410483547495, guid: f77e36f6ddea9fe418f673d6f52f0eaf,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 1813370410483547495, guid: f77e36f6ddea9fe418f673d6f52f0eaf,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 1813370410483547495, guid: f77e36f6ddea9fe418f673d6f52f0eaf,
+        type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.05
       objectReference: {fileID: 0}
     - target: {fileID: 1813370410483547495, guid: f77e36f6ddea9fe418f673d6f52f0eaf,
         type: 3}
@@ -198,7 +213,7 @@ PrefabInstance:
     - target: {fileID: 1813370410483547495, guid: f77e36f6ddea9fe418f673d6f52f0eaf,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.04
       objectReference: {fileID: 0}
     - target: {fileID: 1813370410483547495, guid: f77e36f6ddea9fe418f673d6f52f0eaf,
         type: 3}
