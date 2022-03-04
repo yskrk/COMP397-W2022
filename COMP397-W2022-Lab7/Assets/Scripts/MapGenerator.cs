@@ -6,10 +6,12 @@ public class MapGenerator : MonoBehaviour
 {
     [Header("TileResources")]
     [SerializeField] private List<GameObject> tilePrefabs;
+    public GameObject startTile;
+    public GameObject goalTile;
 
     [Header("TileProperties")]
-    [Range(2, 30)][SerializeField] private int width = 2;
-    [Range(2, 30)][SerializeField] private int depth = 2;
+    [Range(2, 30)]public int width = 2;
+    [Range(2, 30)]public int depth = 2;
     [SerializeField] private Transform parent;
 
     [Header("Generated Tiles")]
@@ -37,25 +39,36 @@ public class MapGenerator : MonoBehaviour
 
     public void BuildMap()
     {
-        // gnerate more tiles if both width and depth are both greater than 2
         var offset = new Vector3(16.0f, 0.0f, 16.0f);
-        for (int row = 0; row < depth; row++)
+
+        // place the start tile
+        tiles.Add(Instantiate(startTile, Vector3.zero, Quaternion.identity, parent));
+
+        // choose a random goal position, cannot be equal the start and cannot be larger than the grid
+        var randomGoalRow = Random.Range(1, depth + 1);
+        var randomGoalCol = Random.Range(1, width + 1);
+
+        // gnerate more tiles if both width and depth are both greater than 2
+        for (int row = 1; row <= depth; row++)
         {
-            for (int col = 0; col < width; col++)
+            for (int col = 1; col <= width; col++)
             {
                 if (row == 1 && col == 1) {continue;}
-                var randomPrefabIndex = Random.Range(0, 4);
-                var randomRotation = Quaternion.Euler(0.0f, Random.Range(0, 4) * 90, 0.0f);
+
                 var tilePosition = new Vector3(col * 16.0f, 0.0f, row * 16.0f) - offset;
 
-                tiles.Add(
-                    Instantiate(
-                        tilePrefabs[randomPrefabIndex], 
-                        tilePosition, 
-                        randomRotation, 
-                        parent
-                    )
-                );
+                if (row == randomGoalRow && col == randomGoalCol)
+                {
+                    // place the goal tile
+                    tiles.Add(Instantiate(goalTile, tilePosition, Quaternion.identity, parent));
+                }
+                else
+                {
+                    var randomPrefabIndex = Random.Range(0, 4);
+                    var randomRotation = Quaternion.Euler(0.0f, Random.Range(0, 4) * 90, 0.0f);
+
+                    tiles.Add(Instantiate(tilePrefabs[randomPrefabIndex], tilePosition, randomRotation, parent));
+                }
             }
         }
     }
@@ -64,15 +77,13 @@ public class MapGenerator : MonoBehaviour
     {
         startWidth = width;
         startDepth = depth;
-        var tempTile = tiles[0];
         var size = tiles.Count;
 
-        for (int i = 1; i < size; i++)
+        for (int i = 0; i < size; i++)
         {
             Destroy(tiles[i]);
         }
 
         tiles.Clear();  // remove all tiles
-        tiles.Add(tempTile);
     }
 }
