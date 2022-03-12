@@ -18,6 +18,9 @@ public class PlayerBehabiour : MonoBehaviour
     [SerializeField] LayerMask groundMask;
     [SerializeField] bool isGrounded;
     
+    [Header("Onscreen Controller")]
+    [SerializeField] private Joystick leftJoystick;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,8 +37,14 @@ public class PlayerBehabiour : MonoBehaviour
             velocity.y = -2.0f;
         }
 
-        float x = Input.GetAxis("Horizontal");
-        float z = Input.GetAxis("Vertical");
+        // foreach (var touch in Input.touches)
+        // {
+        //     Debug.Log(touch.position);
+        // }
+
+        // keyboard Input (fallback) + onscreen joystick
+        float x = Input.GetAxis("Horizontal") + leftJoystick.Horizontal;
+        float z = Input.GetAxis("Vertical") + leftJoystick.Vertical;
 
         // move
         Vector3 move = transform.right * x + transform.forward * z;
@@ -54,5 +63,13 @@ public class PlayerBehabiour : MonoBehaviour
     private void OnDrawGizmos() {
         Gizmos.color = Color.gray;
         Gizmos.DrawWireSphere(groundCheck.position, groundRadius);
+    }
+
+    public void OnAButtonPressed()
+    {
+        if (isGrounded)
+        {
+            velocity.y = Mathf.Sqrt(jumpHeight * -2.0f * gravity);
+        }
     }
 }
