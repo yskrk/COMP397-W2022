@@ -5,7 +5,7 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     // public values
-    [SerializeField] private float mouseSensitivity = 10.0f;
+    // [SerializeField] private float mouseSensitivity = 10.0f;
     [SerializeField] private Transform playerBody;
     [SerializeField] private Joystick rightstick;
 
@@ -15,7 +15,7 @@ public class CameraController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
+        // Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame

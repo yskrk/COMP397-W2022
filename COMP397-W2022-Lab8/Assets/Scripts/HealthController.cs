@@ -9,7 +9,7 @@ public class HealthController : MonoBehaviour
     private void OnTriggerEnter(Collider other) {
         if (other.gameObject.CompareTag("Player"))
         {
-            controls.TakeDamage(10);
+            // controls.TakeDamage(10);
         }
     }
 }

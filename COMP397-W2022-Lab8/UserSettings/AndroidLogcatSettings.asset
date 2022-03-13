@@ -3,51 +3,45 @@
     "m_SelectedPackage": {
         "deviceId": "emulator-5554",
         "name": "ca.centennialcollege.comp397.lab8",
-        "processId": 3828,
-        "exited": false
+        "processId": 3162,
+        "exited": true
     },
     "m_SelectedPriority": 0,
     "m_KnownPackagesForSerialization": [
         {
             "deviceId": "emulator-5554",
             "name": "com.ldmnq.launcher3",
-            "processId": 1837,
-            "exited": true
-        },
-        {
-            "deviceId": "emulator-5554",
-            "name": "com.android.settings",
-            "processId": 1628,
-            "exited": true
-        },
-        {
-            "deviceId": "emulator-5554",
-            "name": "ca.centennialcollege.comp397.lab8",
-            "processId": 2877,
-            "exited": true
-        },
-        {
-            "deviceId": "emulator-5554",
-            "name": "ca.centennialcollege.comp397.lab8",
-            "processId": 3286,
-            "exited": true
-        },
-        {
-            "deviceId": "emulator-5554",
-            "name": "com.ldmnq.launcher3",
             "processId": 1814,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "emulator-5554",
             "name": "ca.centennialcollege.comp397.lab8",
             "processId": 3666,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "emulator-5554",
             "name": "ca.centennialcollege.comp397.lab8",
             "processId": 3828,
+            "exited": true
+        },
+        {
+            "deviceId": "emulator-5554",
+            "name": "ca.centennialcollege.comp397.lab8",
+            "processId": 2885,
+            "exited": true
+        },
+        {
+            "deviceId": "emulator-5554",
+            "name": "ca.centennialcollege.comp397.lab8",
+            "processId": 3162,
+            "exited": true
+        },
+        {
+            "deviceId": "emulator-5554",
+            "name": "com.ldmnq.launcher3",
+            "processId": 1829,
             "exited": false
         }
     ],
