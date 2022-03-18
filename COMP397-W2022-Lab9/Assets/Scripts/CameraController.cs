@@ -5,7 +5,7 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     // public values
-    // [SerializeField] private float mouseSensitivity = 10.0f;
+    [SerializeField] private float ctrlSensitivity = 10.0f;
     [SerializeField] private Transform playerBody;
     [SerializeField] private Joystick rightstick;
 
@@ -15,23 +15,34 @@ public class CameraController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // Cursor.lockState = CursorLockMode.Locked;
+        if (Application.platform != RuntimePlatform.Android)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        // float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity + rightstick.Horizontal;
-        // float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity + rightstick.Vertical;
+        float horizontalInput;
+        float verticalInput;
 
-        float mouseX = rightstick.Horizontal;
-        float mouseY = rightstick.Vertical;
+        if (Application.platform != RuntimePlatform.Android)
+        {
+            horizontalInput = Input.GetAxis("Mouse X") * ctrlSensitivity;
+            verticalInput = Input.GetAxis("Mouse Y") * ctrlSensitivity;
+        }
+        else
+        {
+            horizontalInput = rightstick.Horizontal;
+            verticalInput = rightstick.Vertical;
+        }
 
-        XRotation -= mouseY;
+        XRotation -= verticalInput;
         XRotation = Mathf.Clamp(XRotation, -90.0f, 90.0f);
 
         // rotating left / right
         transform.localRotation = Quaternion.Euler(XRotation, 0.0f, 0.0f);
-        playerBody.Rotate(Vector3.up * mouseX);
+        playerBody.Rotate(Vector3.up * horizontalInput);
     }
 }
