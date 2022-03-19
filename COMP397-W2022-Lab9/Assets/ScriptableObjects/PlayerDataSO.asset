@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85cbdca17c2a9eb4881c26c7b0f7e735, type: 3}
   m_Name: PlayerDataSO
   m_EditorClassIdentifier: 
-  health: 0
-  position: {x: 0, y: 0, z: 0}
-  rotation: {x: 0, y: 0, z: 0, w: 0}
+  health: 50
+  position: {x: 23.685768, y: 1.0799998, z: -0.98829716}
+  rotation: {x: 0, y: 0.67880046, z: 0, w: 0.73432285}
