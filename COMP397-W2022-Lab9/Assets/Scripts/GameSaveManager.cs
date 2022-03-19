@@ -8,6 +8,7 @@ using UnityEngine;
 public class GameSaveManager : MonoBehaviour
 {
     [SerializeField] private Transform player;
+    [SerializeField] private PlayerDataScriptableObject PlayerDataSO;
 
     // Update is called once per frame
     void Update()
@@ -41,6 +42,12 @@ public class GameSaveManager : MonoBehaviour
         bf.Serialize(file, data);
         file.Close();
         Debug.Log("Game data saved!");
+
+        // scriptable object
+        PlayerDataSO.position = player.position;
+        PlayerDataSO.rotation = player.rotation;
+        PlayerDataSO.health = 50;
+        // PlayerDataSO.name = "Player 1";
     }
     void LoadGame()
     {
