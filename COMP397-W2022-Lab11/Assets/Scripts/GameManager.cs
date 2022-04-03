@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     private void OnGUI()
     {
         GUILayout.BeginArea(new Rect(10, 10, 300, 300));
-        if (NetworkManager.Singleton.IsClient && !NetworkManager.Singleton.IsServer)
+        if (!NetworkManager.Singleton.IsClient && !NetworkManager.Singleton.IsServer)
         {
             // StartButton
             StartButtons();
@@ -48,4 +48,9 @@ public class GameManager : MonoBehaviour
         GUILayout.Label("Transport: " + NetworkManager.Singleton.NetworkConfig.NetworkTransport.GetType().Name);
         GUILayout.Label("Mode: " + mode);
     }
+
+    // void Update()
+    // {
+
+    // }
 }
